@@ -1,0 +1,2 @@
+Cenario,Espaco,N_Grupos,Tau_Global,Tau_Local,Gap_Global,Burden_Min,Burden_Mediana,Burden_Max,Fator_Pessimista_Min,Fator_Pessimista_Mediana,Fator_Pessimista_Max,Grupos_Fator_Pessimista_Maior_1
+B01,Residuos_RNN,20,507.3800436756856,49.6939633489725,104.74621149937104,3.4178151996271873,3.5235838242908892,3.573289410892007,3.2557965175714747,3.36245892202977,3.4164320528307015,20

@@ -1,0 +1,13 @@
+Cenario,Eixo,Alpha_Grupo,Beta_Global,Var_Ruido,Rho_Intra_Teorico,Rho_Inter_Teorico,Contraste_Grupos_Teorico,Descricao
+A01,coesao_local,0.05,0.05,0.8999999999999999,0.1,0.05,0.05,Coesão local muito fraca.
+A02,coesao_local,0.15,0.05,0.7999999999999999,0.2,0.05,0.15,Coesão local fraca.
+A03,coesao_local,0.3,0.05,0.6499999999999999,0.35,0.05,0.3,Coesão local moderada-baixa.
+A04,coesao_local,0.45,0.05,0.5,0.5,0.05,0.45,Coesão local moderada-alta.
+A05,coesao_local,0.65,0.05,0.3,0.7000000000000001,0.05,0.65,Configuração-base usada nos experimentos anteriores.
+A06,coesao_local,0.8,0.05,0.14999999999999997,0.8500000000000001,0.05,0.8,Coesão local muito forte.
+B01,acoplamento_global,0.7,0.0,0.30000000000000004,0.7,0.0,0.7,Grupos fortes e praticamente sem fator global.
+B02,acoplamento_global,0.55,0.15,0.29999999999999993,0.7000000000000001,0.15,0.55,Acoplamento global baixo-moderado.
+B03,acoplamento_global,0.4,0.3,0.3,0.7,0.3,0.4,Acoplamento global moderado.
+B04,acoplamento_global,0.2,0.5,0.30000000000000004,0.7,0.5,0.2,Acoplamento global forte.
+B05,acoplamento_global,0.05,0.65,0.29999999999999993,0.7000000000000001,0.65,0.05,Grupos apenas ligeiramente distinguíveis.
+B06,acoplamento_global,0.0,0.7,0.30000000000000004,0.7,0.7,0.0,Controle negativo: sem contraste estrutural entre grupos.

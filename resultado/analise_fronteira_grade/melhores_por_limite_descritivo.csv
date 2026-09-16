@@ -1,0 +1,5 @@
+Limite_Descritivo_Pct_Fora_P01_P99,Condicao,m,delta_latente,Pct_Fora_P01_P99,Melhor_Global,Recall_Melhor_Global_FPR1,Melhor_Local,Recall_Melhor_Local_FPR1,Vantagem_Local_Absoluta
+5.0,C028,8,1.0,3.925,Global_Energia,0.029,Local_Mahalanobis,0.0615,0.0325
+10.0,C029,8,1.25,7.325,Global_Mahalanobis,0.0305,Local_Mahalanobis,0.175,0.1445
+15.0,C030,8,1.5,12.325,Global_Mahalanobis,0.039,Local_Mahalanobis,0.343,0.304
+20.0,C031,8,1.75,19.15,Global_Mahalanobis,0.0525,Local_Mahalanobis,0.4785,0.426

@@ -1,0 +1,2 @@
+ae7f11dc76559c2fdcbcf528b7c3bf22efef64cca4f5d9b48a38af8c89415074  dados/condicoes_confirmatorias.csv
+a2a5891983b2cfc30fb482a8ec8a971202b93e4e5b5e750dcd9e642d7cc024aa  dados/protocolo_confirmatorio.json

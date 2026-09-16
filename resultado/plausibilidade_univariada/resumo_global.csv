@@ -1,0 +1,6 @@
+Criterio,N_Fora,N_Total,Percentual_Fora
+Fora_MinMax_Treino,3,20000,0.015
+Fora_P001_P999,72,20000,0.36
+Fora_P005_P995,401,20000,2.005
+Fora_P01_P99,790,20000,3.95
+Fora_P05_P95,3584,20000,17.92

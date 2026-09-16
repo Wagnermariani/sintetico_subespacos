@@ -1,0 +1,2 @@
+2083da00312e44eb04855c35349f3aef5defc4e7ce0b66311de047883bf19f7f  dados/eventos_confirmatorios_base.csv
+7999f410767be37251ffe3f3c38679a94c8830b5ec29ae64f029e4256bb77d56  dados/ordem_features_confirmatorias.csv

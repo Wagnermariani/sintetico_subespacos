@@ -1,0 +1,53 @@
+{
+    "tipo": "grade_exploratoria_predefinida",
+    "n_grupos": 20,
+    "n_features_por_grupo": 20,
+    "n_floats_por_grupo": 14,
+    "n_binarias_por_grupo": 6,
+    "n_features_total": 400,
+    "duracao_evento_s": 100,
+    "fpr_alvo_validacao": 0.01,
+    "valores_m": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+    ],
+    "valores_delta": [
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        1.75,
+        2.0
+    ],
+    "n_condicoes": 56,
+    "metodos": [
+        "Energia",
+        "MAX",
+        "TOP3",
+        "TOP5",
+        "TOP10",
+        "Mahalanobis"
+    ],
+    "modos": [
+        "Global",
+        "Local"
+    ],
+    "observacoes": [
+        "Cada evento afeta somente um dos 20 processos.",
+        "As m variaveis afetadas pertencem ao mesmo processo.",
+        "Somente variaveis float sao perturbadas nesta grade.",
+        "As variaveis escolhidas sao aninhadas: m maior reutiliza as variaveis de m menor.",
+        "Os ataques permanecem dentro dos ranges fisicos.",
+        "Treino e validacao permanecem exclusivamente normais.",
+        "Limiar operacional e calibrado somente na validacao normal.",
+        "O casamento exato de FPR no teste sera usado apenas como diagnostico complementar e sera identificado como tal.",
+        "A grade foi definida antes da execucao da varredura completa."
+    ]
+}

@@ -1,0 +1,2 @@
+a7519f91f907317a3dfea789ca3d490956b4e21938c6beb1ca418bf520268daf  dados/fronteira_estrutural/grade_estrutural.csv
+8e2431c96288e55d823e7a7b6d2fd124ea67b173cecba94655872b4010ca7949  dados/fronteira_estrutural/protocolo_estrutural.json

@@ -1,0 +1,40 @@
+{
+    "experimento": "Experimento 4 - Fronteira Estrutural",
+    "natureza": "exploratorio_controlado",
+    "pergunta": "Quais propriedades observáveis somente no comportamento normal indicam que a decomposição em subespaços pode oferecer vantagem para detecção de anomalias?",
+    "gerador": "codigo/gerar_normal_estrutural.py",
+    "n_cenarios": 12,
+    "n_grupos": 20,
+    "features_por_grupo": 20,
+    "n_features": 400,
+    "n_treino": 20000,
+    "n_validacao": 10000,
+    "n_teste": 20000,
+    "seed_treino": 6001,
+    "seed_validacao": 6002,
+    "seed_teste": 6003,
+    "controle_seeds": "As mesmas seeds serão usadas em todos os cenários para isolar o efeito da estrutura alpha/beta.",
+    "variancia_latente_total": 1.0,
+    "regra_variancia": "Var_Ruido = 1 - Alpha_Grupo - Beta_Global",
+    "eixos": {
+        "coesao_local": "Beta_Global fixo em 0.05; Alpha_Grupo varia.",
+        "acoplamento_global": "Alpha_Grupo + Beta_Global = 0.70; Beta_Global aumenta progressivamente."
+    },
+    "diagnostico_normal_only": "Burden Ratio e fatores estruturais calculados sem acesso a ataques.",
+    "avaliacao_posterior_com_ataques": {
+        "uso": "Somente para verificar posteriormente se o indicador normal-only acompanha a vantagem real. Os ataques não entram no diagnóstico.",
+        "probes": [
+            {
+                "m": 8,
+                "delta_latente": 1.25
+            },
+            {
+                "m": 8,
+                "delta_latente": 1.5
+            }
+        ],
+        "geometria_eventos": "dados/eventos_confirmatorios_base.csv",
+        "ordem_features": "dados/ordem_features_confirmatorias.csv"
+    },
+    "observacao_metodologica": "Este experimento não altera nem reabre os experimentos exploratório e confirmatório anteriores. Não contém drift e não utiliza RNN."
+}

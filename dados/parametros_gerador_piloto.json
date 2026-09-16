@@ -1,0 +1,17 @@
+{
+    "seed": 42,
+    "n_grupos": 20,
+    "n_float_por_grupo": 14,
+    "n_binarias_por_grupo": 6,
+    "n_features_por_grupo": 20,
+    "n_features_total": 400,
+    "n_treino_piloto": 20000,
+    "n_validacao_piloto": 10000,
+    "alpha_grupo": 0.65,
+    "beta_global": 0.05,
+    "var_ruido": 0.3,
+    "phi_grupo": 0.97,
+    "phi_global": 0.995,
+    "rho_float_intra_teorico": 0.7000000000000001,
+    "rho_float_inter_teorico": 0.05
+}

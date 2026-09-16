@@ -1,0 +1,27 @@
+# Pacotes pesados disponibilizados externamente
+*.tar.gz
+
+# Dados sintéticos completos gerados
+dados/confirmacao/
+dados/fronteira_estrutural/cenarios/
+
+# Conjuntos piloto completos
+dados/treino_normal_piloto.csv
+dados/validacao_normal_piloto.csv
+dados/teste_normal_base_piloto.csv
+dados/teste_ataque_piloto_m10_delta1.csv
+
+# Artefatos binários pesados das RNNs
+*.npy
+*.pth
+
+# Arquivos temporários do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Arquivos locais de editor/sistema
+.vscode/
+.DS_Store
+Thumbs.db
+codigo/rnn_hai_base.py

@@ -1,0 +1,28 @@
+{
+  "cenario": "A01",
+  "protocolo_sha256": "82290d6945c00cfc0d06f39ce6d538a3593a13b9996afaab38328a776dc53b60",
+  "device": "cuda",
+  "seed": 42,
+  "window_size": 60,
+  "batch_size": 512,
+  "hidden_size": 64,
+  "num_layers": 1,
+  "dropout": 0.0,
+  "learning_rate": 0.001,
+  "max_epochs": 100,
+  "patience": 5,
+  "melhor_epoca": 2,
+  "melhor_loss_validacao": 0.1316682612865387,
+  "n_janelas_treino": 19941,
+  "n_janelas_validacao": 9941,
+  "shape_residuos_treino": [
+    19941,
+    400
+  ],
+  "shape_residuos_validacao": [
+    9941,
+    400
+  ],
+  "teste_carregado": false,
+  "ataques_utilizados": false
+}

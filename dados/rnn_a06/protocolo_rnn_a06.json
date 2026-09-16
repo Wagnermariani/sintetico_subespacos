@@ -1,0 +1,104 @@
+{
+  "experimento": {
+    "nome": "RNN_A06_agregacao_global_vs_local",
+    "natureza": "exploratorio_controlado",
+    "objetivo": "Verificar se a vantagem da agregacao local sobrevive ao espaco de residuos produzido por uma unica RNN-AE monolitica.",
+    "cenario": "A06",
+    "alpha_grupo": 0.8,
+    "beta_global": 0.05
+  },
+  "dados": {
+    "n_features": 400,
+    "normalizacao": "MinMax fisico conhecido para features continuas; features binarias permanecem 0/1.",
+    "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A06/treino_normal.csv",
+    "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A06/validacao_normal.csv",
+    "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A06/teste_normal_base.csv",
+    "particao": "20 grupos de 20 features descobertos exclusivamente a partir do treino normal de A06."
+  },
+  "rnn": {
+    "tipo": "RNN Autoencoder",
+    "input_dim": 400,
+    "window_size": 60,
+    "batch_size": 512,
+    "hidden_size": 64,
+    "num_layers": 1,
+    "dropout": 0.0,
+    "nonlinearity": "tanh",
+    "decoder_input": "sequencia de zeros inicializada pelo hidden final do encoder",
+    "output_layer": "Linear(hidden_size, 400)",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss_treino": "MSE da janela completa",
+    "max_epochs": 100,
+    "early_stopping": true,
+    "early_stopping_patience": 5,
+    "checkpoint": "menor perda MSE na validacao normal",
+    "seed": 42
+  },
+  "residuos": {
+    "instante_avaliado": "ultimo instante de cada janela",
+    "definicao": "e_t = x_t - xhat_t",
+    "dimensao": 400,
+    "principio_comparacao": "Global e local recebem exatamente os mesmos residuos produzidos pela mesma RNN e pelo mesmo checkpoint."
+  },
+  "score_global": {
+    "metodo": "LedoitWolf Mahalanobis",
+    "ajuste_covariancia": "residuos normais do treino",
+    "score": "Mahalanobis sobre as 400 dimensoes residuais",
+    "limiar": "percentil 99 dos scores da validacao normal"
+  },
+  "score_local": {
+    "metodo": "LedoitWolf Mahalanobis",
+    "ajuste_covariancia": "residuos normais do treino por grupo",
+    "grupos": 20,
+    "dimensao_grupo": 20,
+    "fusao": "maximo dos 20 scores locais",
+    "limiar": "percentil 99 do score de fusao maximo na validacao normal"
+  },
+  "probes": [
+    {
+      "id": "P01",
+      "m": 8,
+      "delta_latente": 1.25
+    },
+    {
+      "id": "P02",
+      "m": 8,
+      "delta_latente": 1.5
+    }
+  ],
+  "ataques": {
+    "eventos": "mesmos 20 eventos congelados anteriormente",
+    "duracao": "100 segundos por evento",
+    "ordem_features": "mesma ordem congelada anteriormente",
+    "uso": "somente no teste, depois do treinamento, ajuste das covariancias e calibracao dos limiares"
+  },
+  "avaliacao": {
+    "comparacao_primaria": "Recall_Local - Recall_Global",
+    "metricas_secundarias": [
+      "FPR",
+      "Precision",
+      "F1",
+      "MCC"
+    ],
+    "sem_calibracao_no_teste": true,
+    "criterio_interpretacao": "vantagem local existe quando Recall_Local > Recall_Global sob limiares independentes calibrados para FPR nominal de 1% na mesma validacao normal"
+  },
+  "restricoes": {
+    "uma_unica_rnn": true,
+    "nenhuma_rnn_local_nesta_etapa": true,
+    "nenhum_ajuste_de_arquitetura_apos_ver_o_teste": true,
+    "nenhum_ataque_usado_no_treino": true,
+    "nenhum_ataque_usado_na_validacao": true
+  },
+  "hashes_fontes": {
+    "treino_normal_A06": "9707d4127261321eaa66d1e9497276a2c629386154f727017ebc9d1b07aecc0c",
+    "validacao_normal_A06": "0ebf810a060bdf2f5f4ecd972ce558c9a70bde72da63a88650befd1c0d359182",
+    "teste_normal_base_A06": "1fe28b5f921f42e387c69f0a8d467fc2eff300bd594ce2bb1ae93fe88a9b54fc",
+    "eventos": "2083da00312e44eb04855c35349f3aef5defc4e7ce0b66311de047883bf19f7f",
+    "ordem_features_ataque": "7999f410767be37251ffe3f3c38679a94c8830b5ec29ae64f029e4256bb77d56",
+    "parametros_fisicos": "5d91c3b1f9a93b6e3c74a728df6dcf258f0fb5a755ea703708e5ba887802e2d4",
+    "particao_descoberta_A06": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "rnn_hai_usada_como_referencia": "334ff5297306990a4b281e262a9e08c0904e1e128c6473e7c38db09d8c1efd33"
+  }
+}

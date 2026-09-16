@@ -1,0 +1,43 @@
+{
+    "fase": "confirmatoria",
+    "origem": "Região selecionada após a grade exploratória pré-definida de 56 condições.",
+    "valores_m": [
+        6,
+        8,
+        10
+    ],
+    "valores_delta": [
+        1.25,
+        1.5
+    ],
+    "n_condicoes": 6,
+    "n_realizacoes_independentes": 5,
+    "seeds_realizacoes": [
+        1001,
+        2001,
+        3001,
+        4001,
+        5001
+    ],
+    "fpr_alvo_validacao": 0.01,
+    "metodo_local_principal": "Mahalanobis_Local",
+    "baselines_globais": [
+        "Energia",
+        "MAX",
+        "TOP3",
+        "TOP5",
+        "TOP10",
+        "Mahalanobis"
+    ],
+    "hipotese_primaria": "Nas novas realizações independentes, o recall médio do Mahalanobis local será superior ao recall médio do melhor baseline global pré-definido, com todos os limiares calibrados exclusivamente em validação normal.",
+    "avaliacao_primaria": "Delta = Recall(Mahalanobis local) - max Recall(baselines globais), calculado no teste sem utilização dos rótulos para ajuste de limiar.",
+    "observacoes": [
+        "Nenhum parâmetro da região confirmatória será alterado após a geração das novas realizações.",
+        "Os rótulos do teste serão usados somente para avaliação.",
+        "Não será realizado casamento de FPR usando o teste na análise confirmatória principal.",
+        "Resultados negativos serão preservados e reportados.",
+        "O mapa verdadeiro dos grupos poderá ser usado pelo gerador dos ataques, mas não pelos detectores.",
+        "Os grupos utilizados pelo detector deverão ser descobertos exclusivamente a partir do normal.",
+        "O uso operacional futuro não pressupõe conhecimento de m, delta ou de qualquer propriedade do ataque zero-day."
+    ]
+}

@@ -1,0 +1,309 @@
+{
+  "experimento": {
+    "nome": "RNN_fronteira_estrutural_global_vs_local",
+    "natureza": "experimento_controlado_pre_registrado",
+    "objetivo": "Verificar, em diferentes regimes estruturais previamente congelados, quando a avaliacao local dos mesmos residuos produzidos por uma RNN-AE monolitica apresenta vantagem sobre a avaliacao global.",
+    "objetivo_diagnostico": "Avaliar se propriedades calculadas exclusivamente a partir dos residuos normais permitem distinguir regioes favoraveis, incertas e desfavoraveis a decomposicao.",
+    "cenarios_prospectivos": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06"
+    ],
+    "n_cenarios_prospectivos": 11,
+    "referencia_previa_ja_observada": "A06",
+    "observacao_referencia": "A06 foi executado anteriormente como primeiro experimento RNN e nao e tratado como resultado prospectivo desta bateria."
+  },
+  "dados": {
+    "n_features": 400,
+    "normalizacao": "MinMax fisico conhecido para features continuas; features binarias permanecem 0/1.",
+    "cenarios": {
+      "A01": {
+        "alpha_grupo": 0.05,
+        "beta_global": 0.05,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A01/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A01/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A01/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/A01/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 1,
+        "tamanho_grupo_min": 400,
+        "tamanho_grupo_mediano": 400.0,
+        "tamanho_grupo_max": 400
+      },
+      "A02": {
+        "alpha_grupo": 0.15,
+        "beta_global": 0.05,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A02/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A02/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A02/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/A02/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 20,
+        "tamanho_grupo_min": 20,
+        "tamanho_grupo_mediano": 20.0,
+        "tamanho_grupo_max": 20
+      },
+      "A03": {
+        "alpha_grupo": 0.3,
+        "beta_global": 0.05,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A03/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A03/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A03/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/A03/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 20,
+        "tamanho_grupo_min": 20,
+        "tamanho_grupo_mediano": 20.0,
+        "tamanho_grupo_max": 20
+      },
+      "A04": {
+        "alpha_grupo": 0.45,
+        "beta_global": 0.05,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A04/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A04/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A04/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/A04/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 20,
+        "tamanho_grupo_min": 20,
+        "tamanho_grupo_mediano": 20.0,
+        "tamanho_grupo_max": 20
+      },
+      "A05": {
+        "alpha_grupo": 0.65,
+        "beta_global": 0.05,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A05/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A05/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/A05/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/A05/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 20,
+        "tamanho_grupo_min": 20,
+        "tamanho_grupo_mediano": 20.0,
+        "tamanho_grupo_max": 20
+      },
+      "B01": {
+        "alpha_grupo": 0.7,
+        "beta_global": 0.0,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B01/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B01/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B01/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/B01/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 20,
+        "tamanho_grupo_min": 20,
+        "tamanho_grupo_mediano": 20.0,
+        "tamanho_grupo_max": 20
+      },
+      "B02": {
+        "alpha_grupo": 0.55,
+        "beta_global": 0.15,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B02/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B02/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B02/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/B02/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 20,
+        "tamanho_grupo_min": 20,
+        "tamanho_grupo_mediano": 20.0,
+        "tamanho_grupo_max": 20
+      },
+      "B03": {
+        "alpha_grupo": 0.4,
+        "beta_global": 0.3,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B03/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B03/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B03/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/B03/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 20,
+        "tamanho_grupo_min": 20,
+        "tamanho_grupo_mediano": 20.0,
+        "tamanho_grupo_max": 20
+      },
+      "B04": {
+        "alpha_grupo": 0.2,
+        "beta_global": 0.5,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B04/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B04/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B04/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/B04/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 1,
+        "tamanho_grupo_min": 400,
+        "tamanho_grupo_mediano": 400.0,
+        "tamanho_grupo_max": 400
+      },
+      "B05": {
+        "alpha_grupo": 0.05,
+        "beta_global": 0.65,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B05/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B05/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B05/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/B05/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 47,
+        "tamanho_grupo_min": 1,
+        "tamanho_grupo_mediano": 1.0,
+        "tamanho_grupo_max": 354
+      },
+      "B06": {
+        "alpha_grupo": 0.0,
+        "beta_global": 0.7,
+        "treino": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B06/treino_normal.csv",
+        "validacao": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B06/validacao_normal.csv",
+        "teste_normal_base": "/home/wagner/areas/sintetico_subespacos/dados/fronteira_estrutural/cenarios/B06/teste_normal_base.csv",
+        "particao": "/home/wagner/areas/sintetico_subespacos/resultado/fronteira_estrutural/descoberta_grupos/B06/mapa_grupos_descobertos.csv",
+        "n_grupos_descobertos": 121,
+        "tamanho_grupo_min": 1,
+        "tamanho_grupo_mediano": 1.0,
+        "tamanho_grupo_max": 280
+      }
+    },
+    "particoes": "Para cada cenario e usada exclusivamente a particao previamente descoberta a partir de seus dados normais. O numero e o tamanho dos grupos nao sao forçados."
+  },
+  "rnn": {
+    "tipo": "RNN Autoencoder",
+    "estrategia": "Uma RNN monolitica independente e treinada para cada cenario, mantendo exatamente a mesma arquitetura e os mesmos hiperparametros.",
+    "input_dim": 400,
+    "window_size": 60,
+    "batch_size": 512,
+    "hidden_size": 64,
+    "num_layers": 1,
+    "dropout": 0.0,
+    "nonlinearity": "tanh",
+    "decoder_input": "sequencia de zeros inicializada pelo hidden final do encoder",
+    "output_layer": "Linear(hidden_size, 400)",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss_treino": "MSE da janela completa",
+    "max_epochs": 100,
+    "early_stopping": true,
+    "early_stopping_patience": 5,
+    "checkpoint": "menor perda MSE na validacao normal",
+    "seed": 42,
+    "ajuste_arquitetura_por_cenario": false
+  },
+  "residuos": {
+    "instante_avaliado": "ultimo instante de cada janela",
+    "definicao": "e_t = x_t - xhat_t",
+    "dimensao": 400,
+    "principio_comparacao": "Dentro de cada cenario, global e local recebem exatamente os mesmos residuos produzidos pela mesma RNN e pelo mesmo checkpoint."
+  },
+  "diagnostico_normal_only": {
+    "momento": "depois do treinamento da RNN e antes da utilizacao de qualquer ataque do teste",
+    "dados_permitidos": [
+      "residuos normais do treino",
+      "residuos normais da validacao",
+      "particao descoberta a partir do normal"
+    ],
+    "dados_proibidos": [
+      "rotulos de ataque",
+      "scores do teste atacado",
+      "resultado dos probes"
+    ],
+    "finalidade": "Caracterizar previamente a geometria global e local no espaco residual da RNN."
+  },
+  "score_global": {
+    "metodo": "LedoitWolf Mahalanobis",
+    "ajuste_covariancia": "residuos normais do treino",
+    "score": "Mahalanobis sobre as 400 dimensoes residuais",
+    "limiar": "percentil 99 dos scores da validacao normal"
+  },
+  "score_local": {
+    "metodo": "LedoitWolf Mahalanobis",
+    "ajuste_covariancia": "residuos normais do treino separadamente para cada grupo descoberto no respectivo cenario",
+    "numero_grupos": "determinado pela particao descoberta de cada cenario",
+    "dimensao_grupos": "determinada pela particao descoberta de cada cenario",
+    "fusao": "maximo dos scores Mahalanobis locais",
+    "limiar": "percentil 99 do score de fusao maximo na validacao normal"
+  },
+  "probes": [
+    {
+      "id": "P01",
+      "m": 8,
+      "delta_latente": 1.25
+    },
+    {
+      "id": "P02",
+      "m": 8,
+      "delta_latente": 1.5
+    }
+  ],
+  "ataques": {
+    "eventos": "mesmos 20 eventos congelados anteriormente",
+    "duracao": "100 segundos por evento",
+    "ordem_features": "mesma ordem congelada anteriormente",
+    "uso": "somente no teste, depois do treinamento da RNN, extracao dos residuos normais, ajuste das covariancias, calibracao dos limiares e diagnostico normal-only"
+  },
+  "avaliacao": {
+    "comparacao_primaria": "Recall_Local - Recall_Global",
+    "metricas_secundarias": [
+      "FPR",
+      "Precision",
+      "F1",
+      "MCC"
+    ],
+    "sem_calibracao_no_teste": true,
+    "criterio_vantagem_observada": "Recall_Local > Recall_Global sob limiares independentes calibrados para FPR nominal de 1% na mesma validacao normal",
+    "questao_principal": "Verificar a correspondencia entre a geometria observada somente no normal e a vantagem ou ausencia de vantagem local posteriormente observada nos probes."
+  },
+  "restricoes": {
+    "uma_unica_rnn_por_cenario": true,
+    "mesma_arquitetura_em_todos_os_cenarios": true,
+    "nenhuma_rnn_local": true,
+    "nenhum_ajuste_de_arquitetura_apos_ver_o_teste": true,
+    "nenhum_ataque_usado_no_treino": true,
+    "nenhum_ataque_usado_na_validacao": true,
+    "nenhum_ataque_usado_no_diagnostico_normal_only": true,
+    "nenhuma_particao_forcada_para_20x20": true
+  },
+  "hashes_fontes": {
+    "eventos": "2083da00312e44eb04855c35349f3aef5defc4e7ce0b66311de047883bf19f7f",
+    "ordem_features_ataque": "7999f410767be37251ffe3f3c38679a94c8830b5ec29ae64f029e4256bb77d56",
+    "parametros_fisicos": "5d91c3b1f9a93b6e3c74a728df6dcf258f0fb5a755ea703708e5ba887802e2d4",
+    "rnn_hai_usada_como_referencia": "334ff5297306990a4b281e262a9e08c0904e1e128c6473e7c38db09d8c1efd33",
+    "treino_normal_A01": "4033986d3390818658775243f79402eb9c9805f9e87a0169c37b562a42f7c44e",
+    "validacao_normal_A01": "a2d5b3f02db9c413578170557f3462df02c817a0f7fec3f8b68915f19df51799",
+    "teste_normal_base_A01": "04f40b408bec57074d06d2c67b47480e76bcfd0c53d0ee7c5d95f6c9ea7c70bc",
+    "particao_descoberta_A01": "0bb44482b072edc764125f4e2f89d7fe73f431cfc507412b9cb090ba35b29304",
+    "treino_normal_A02": "3b3b7515553ded0b7b6793ec3e3ae8f844b3a9353d91e356e78adaaa6315b3a2",
+    "validacao_normal_A02": "9643e4c7e3d5f9ea9b0d4e69a8f6f07f35d275e54705887f933915adc27b9907",
+    "teste_normal_base_A02": "3cf704010f82db84df45130d21c97141c11bdf5b936f158bb7994f6ea97fd1ee",
+    "particao_descoberta_A02": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "treino_normal_A03": "700ed18b6959c880324460414c2669c5d314db9b68ed152889499fdd8a48ee65",
+    "validacao_normal_A03": "e870063c257e683066eee30bf833081316cdeba776688378fd76598f1edf9ce1",
+    "teste_normal_base_A03": "c61dc5a900adc9d7c7bfd3310cea76251f501619d51f544d7148e06007fdd4a3",
+    "particao_descoberta_A03": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "treino_normal_A04": "67b74384f11a9a3817242d09c934e9b11fbb3ede157b135bc4d5f44e18377689",
+    "validacao_normal_A04": "45c7fefed28bf02c4ede0c1b83843f5bbb974cdca2396c0f894df71eef43cb4d",
+    "teste_normal_base_A04": "4516fcf99f17ac455ab8afa1fc05024bf65c94f6e2a76362bd5a46fe68d732f0",
+    "particao_descoberta_A04": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "treino_normal_A05": "5d16b21a74f310ec902d5a7dc3539a2b58ba33ed27641f1b6216f506766a1773",
+    "validacao_normal_A05": "f28c5f719332711075db975cca170404ffae949e045a791d0efacc309e7ef0dd",
+    "teste_normal_base_A05": "2f990fad0044373b27185009d8a2e515f9e625bdfa2cc64a1311b8847cd8be9e",
+    "particao_descoberta_A05": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "treino_normal_B01": "d8ddbfe5efad66f2730d8b7f194356dd6c9bbf68f758897ac137c43372fce2a3",
+    "validacao_normal_B01": "195362e46bb8594a7f03bda48540d292282e29b95d2cddac44002e9d760593a6",
+    "teste_normal_base_B01": "0de94000db550fcd66e829b373df88a35696afe08a1d59bdc7c55c73cfcbebad",
+    "particao_descoberta_B01": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "treino_normal_B02": "67f9a7de8359036ce7db8971718525a13b7c99c1be8d9f581b33c48e136fdd40",
+    "validacao_normal_B02": "ab311cbf6143b0b47127f286b7adb46c0bb8531f4996b18a4137aa47b17edd81",
+    "teste_normal_base_B02": "dba5d946f81ec7c39268dd829bba79465529ec6e4291e1a63762f8b859406855",
+    "particao_descoberta_B02": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "treino_normal_B03": "c5bbb884e838e08b5653e67bbab61e2cf3e1a767f0ac9b70b9ee7f9371237723",
+    "validacao_normal_B03": "d4894bc3c64b67095e174d92bbea30906e2058d00fdccf5df921141ef21ba978",
+    "teste_normal_base_B03": "c870730e35cdf1a3c0308874e95bb7f1d81ac11557617ab444a01589e6f5a74e",
+    "particao_descoberta_B03": "fb940af92ed98523c2125a6ff9947fd070949a90e783fe574fc4378a41f12385",
+    "treino_normal_B04": "07edcd7c2b2ad781c4f43b723cf201d0ae5700b87f793d1ce2ec66d4d490746e",
+    "validacao_normal_B04": "ea7ea6348ced10607bdafc3c343a8d4d9a47943404ce9687d148ecc78f92de8e",
+    "teste_normal_base_B04": "febbc0ff567a4bd531031aceafb4481fbbb0d7230077e828bfff589be360ba52",
+    "particao_descoberta_B04": "0bb44482b072edc764125f4e2f89d7fe73f431cfc507412b9cb090ba35b29304",
+    "treino_normal_B05": "cda802536a2595dffe3ba61b8dff840cb8930f4f4de521fea1f4f37a13b3e942",
+    "validacao_normal_B05": "2c232a447f52476e196116c590f5ae367c511fbf7c94e6149b717391c920fef0",
+    "teste_normal_base_B05": "59f803a42875ba24d6d15bf39f32bf5e8c9395a3495fb0046ac24a96bdcc3b83",
+    "particao_descoberta_B05": "bea5a8b42a5abdfbacc6c076c8c60a1c3c3375fd79120ff24762b6bcc5831f2b",
+    "treino_normal_B06": "82de75bac165f1748e6c34e48879b79723f50a8baf1484f966cc3c6f596de373",
+    "validacao_normal_B06": "b6bd0c9a734908d9e519462e9d6c6d3a173b4a72f7db9699235bd38c5ad2a5dd",
+    "teste_normal_base_B06": "0b64b09c291e625d957a6fd7c881d430d6fe428e2dcf8a5fc5f62a8782b1c8fb",
+    "particao_descoberta_B06": "9f065aa346c665c672d43ad42c78c0dd5bdd937b936a28e653d8f5d62e187a12"
+  }
+}
